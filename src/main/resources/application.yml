@@ -1,0 +1,18 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: cam-sense-hub
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: testing_database
+
+allow:
+  origin:
+    endpoint: '*'
+
+logging:
+  config: file:logback-local.xml
