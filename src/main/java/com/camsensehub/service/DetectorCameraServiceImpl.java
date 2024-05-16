@@ -43,7 +43,6 @@ public class DetectorCameraServiceImpl implements DetectorCameraService {
                 UtilMethods.logFailed(response, LOG);
             }
         } catch (Exception e) {
-            LOG.error("Exception in getAllCameraDetails: {}", e.toString());
             response = new GenericResponse<>(Constants.ResponseCodes.UNABLE_TO_PROCESS);
             UtilMethods.logException("getAllCameraDetails", e, LOG);
         }
@@ -58,7 +57,7 @@ public class DetectorCameraServiceImpl implements DetectorCameraService {
         List<Camera> cameraDetailList = new ArrayList<>();
         try {
             LOG.info("IN - getCameraDetailsByLocationAndStampDateBetween - Date: {}", new Date());
-            LOG.info("Request Params: location=" + location + ",startDate=" + startDate + ",endDate=" + endDate);
+            LOG.info("Request Params: location={},startDate={},endDate={}", location, startDate, endDate);
 
             Date formattedStartDate = UtilityFunctions.convertStringToDate(startDate);
             Date formattedEndDate = UtilityFunctions.convertStringToDate(endDate);
@@ -103,8 +102,9 @@ public class DetectorCameraServiceImpl implements DetectorCameraService {
                 UtilMethods.logFailed(response, LOG);
             }
         } catch (Exception e) {
+            LOG.info("Exception - IN findCameraByOwner: {}", e.toString());
             response = new GenericResponse<>(Constants.ResponseCodes.UNABLE_TO_PROCESS);
-            UtilMethods.logException("findCameraByOwner", e, LOG);
+            UtilMethods.logFailed(response, LOG);
         }
 
         LOG.info("OUT - findCameraByOwner - Date: {}", new Date());
@@ -131,8 +131,9 @@ public class DetectorCameraServiceImpl implements DetectorCameraService {
                 UtilMethods.logFailed(response, LOG);
             }
         } catch (Exception e) {
+            LOG.info("Exception - IN findFireDetectorCameraDetails: {}", e.toString());
             response = new GenericResponse<>(Constants.ResponseCodes.UNABLE_TO_PROCESS);
-            UtilMethods.logException("findFireDetectorCameraDetails", e, LOG);
+            UtilMethods.logFailed(response, LOG);
         }
 
         LOG.info("OUT - findFireDetectorCameraDetails - Date: {}", new Date());

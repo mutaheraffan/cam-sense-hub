@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UtilMethods {
     public static void logFailed(GenericResponse<?> response, Logger logger) {
-        logger.error("FAILED -> ResponseCode: " + response.getResponseCode() + ", ResponseDesc:"
-                + response.getResponseDescription());
+        logger.error("FAILED -> ResponseCode: {}, ResponseDesc: {}",
+                response.getResponseCode(), response.getResponseDescription());
 
     }
 
@@ -18,8 +18,8 @@ public class UtilMethods {
     }
 
     public static void logSuccess(GenericResponse<?> response, Logger logger) {
-        logger.info("SUCCESS -> ResponseCode: " + response.getResponseCode() + ", ResponseDesc:"
-                + response.getResponseDescription());
+        logger.info("SUCCESS -> ResponseCode: {}, ResponseDesc: {}",
+                response.getResponseCode(), response.getResponseDescription());
 
     }
 
